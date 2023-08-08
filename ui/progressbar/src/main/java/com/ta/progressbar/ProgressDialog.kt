@@ -30,7 +30,7 @@ class ProgressDialog(private val activity: Activity) {
             RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, 275)
         cardViewParams.addRule(RelativeLayout.CENTER_VERTICAL)
         cardView.cardElevation = 15f
-        cardView.radius = 20f
+        cardView.radius = 5f
         cardViewParams.setMargins(dip(16f), dip(0f), dip(16f), dip(0f))
 
         // Inner Layout
@@ -46,7 +46,7 @@ class ProgressDialog(private val activity: Activity) {
         val progressBarParams =
             RelativeLayout.LayoutParams(125, RelativeLayout.LayoutParams.MATCH_PARENT)
         progressBarParams.addRule(RelativeLayout.CENTER_VERTICAL)
-        progressBarParams.setMargins(dip(0f), dip(0f), dip(16f), dip(0f))
+        progressBarParams.setMargins(dip(10f), dip(0f), dip(16f), dip(0f))
         innerLayout.addView(progressBar, progressBarParams)
 
         // TextView
@@ -56,7 +56,7 @@ class ProgressDialog(private val activity: Activity) {
         )
         textViewParams.addRule(RelativeLayout.CENTER_VERTICAL)
         textView.setPadding(dip(16f), dip(0f), dip(0f), dip(0f))
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
         textView.gravity = Gravity.CENTER_VERTICAL
         innerLayout.addView(textView, textViewParams)
 
