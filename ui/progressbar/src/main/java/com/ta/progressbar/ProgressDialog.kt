@@ -2,6 +2,7 @@ package com.ta.progressbar
 
 import android.app.Activity
 import android.content.res.ColorStateList
+import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -27,7 +28,10 @@ class ProgressDialog(private val activity: Activity) {
 
         // CardView
         val cardViewParams =
-            RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, 275)
+            RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
+            )
         cardViewParams.addRule(RelativeLayout.CENTER_VERTICAL)
         cardView.cardElevation = 15f
         cardView.radius = 5f
@@ -36,7 +40,7 @@ class ProgressDialog(private val activity: Activity) {
         // Inner Layout
         val innerLayoutParams = RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.MATCH_PARENT,
-            RelativeLayout.LayoutParams.MATCH_PARENT
+            RelativeLayout.LayoutParams.WRAP_CONTENT
         )
         innerLayout.setPadding(dip(8f), dip(8f), dip(8f), dip(8f))
         innerLayout.orientation = LinearLayout.HORIZONTAL
@@ -57,6 +61,8 @@ class ProgressDialog(private val activity: Activity) {
         textViewParams.addRule(RelativeLayout.CENTER_VERTICAL)
         textView.setPadding(dip(16f), dip(0f), dip(0f), dip(0f))
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+        textView.maxLines = 5
+        textView.ellipsize = TextUtils.TruncateAt.END
         textView.gravity = Gravity.CENTER_VERTICAL
         innerLayout.addView(textView, textViewParams)
 
